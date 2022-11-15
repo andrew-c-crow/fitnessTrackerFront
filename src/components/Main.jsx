@@ -12,8 +12,8 @@ const Main = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
     <Route path="/" element={<Navbar/>}>
-    <Route path="/" element= {<Home/>}/>
     <Route path="register" element= {<Register/>}/>
+    <Route path="/" element= {<Home/>}/>
     <Route path="login" element= {<Login/>}/>
     <Route path="activities" element= {<AllActivities/>}/>
     <Route path="routines" element= {<AllRoutines/>}/>

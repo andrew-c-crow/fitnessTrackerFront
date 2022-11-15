@@ -1,15 +1,12 @@
 const BASE_URL = "https://fitnesstrac-kr.herokuapp.com/api"
 
-export async function registerUser(username, password) {
+export async function registerUser(registerData) {
     const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        username,
-        password
-      }),
+      body: JSON.stringify(registerData),
     };
     const response = await fetch(
       `${BASE_URL}/users/register`,
