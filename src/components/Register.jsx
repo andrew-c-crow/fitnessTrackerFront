@@ -1,7 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { registerUser } from "../api-adapter";
 
 const Register = () => {
+    const navigate = useNavigate();
   // const [register, setRegister] = useState({
   //   username: '',
   //   password: ''
@@ -17,9 +19,8 @@ const Register = () => {
     localStorage.setItem("username", username);
     localStorage.removeItem("token");
     localStorage.setItem("token", token);
-    if (token.length) {
-
-    }
+    
+    if (token) {navigate("/login")}
   }
 
 // If time: display ERROR or CONFIRMATION on client side.
