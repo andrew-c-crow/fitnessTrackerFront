@@ -10,7 +10,6 @@ const Register = () => {
     password: "",
   });
 
-  const check = localStorage.getItem("token");
   function handleChange(event) {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   }

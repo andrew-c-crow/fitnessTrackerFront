@@ -17,15 +17,14 @@ export async function registerUser(registerData) {
     return result;
   }
 
-  export async function loginUser(username, password) {
+  export async function loginUser(loginData) {
     const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        username,
-        password
+        loginData
       }),
     };
     const response = await fetch(
