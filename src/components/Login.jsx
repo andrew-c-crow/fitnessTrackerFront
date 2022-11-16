@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser, registerUser } from "../api-adapter";
+import { loginUser } from "../api-adapter";
 
 const Login = () => {
 
@@ -29,6 +29,9 @@ const Login = () => {
         localStorage.setItem("token", token);
 
         // navigate to user profile when functioning
+        if (token) {
+            navigate("/");
+        }
     }
         return (
             <>
@@ -54,7 +57,7 @@ const Login = () => {
                       required
                       onChange={handleChange}
                     ></input>
-                    <label className="formLabel">Password</label>
+                    <label className="formLabel">Password:</label>
                     <input
                       type="password"
                       id="password"

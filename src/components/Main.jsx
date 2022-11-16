@@ -1,5 +1,5 @@
 import React from "react";
-import {Navbar, Home, Login, Register, AllActivities, AllRoutines} from './'
+import {Navbar, Home, Login, Register, AllActivities, AllRoutines, Profile} from './'
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -17,6 +17,7 @@ const Main = () => {
     <Route path="login" element= {<Login/>}/>
     <Route path="activities" element= {<AllActivities/>}/>
     <Route path="routines" element= {<AllRoutines/>}/>
+    <Route path="profile" element= {<Profile/>}/>
   </Route>
     )
   )

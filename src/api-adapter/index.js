@@ -23,9 +23,9 @@ export async function registerUser(registerData) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+      body: JSON.stringify(
         loginData
-      }),
+      ),
     };
     const response = await fetch(
       `${BASE_URL}/users/login`,
@@ -35,7 +35,7 @@ export async function registerUser(registerData) {
     return result;
   }
 //   either need to: 1. get token from localStorage or 2. pass in token as argument to getProfile
-  export async function getProfile() {
+  export async function getProfile(token) {
     const options = {
         headers: {
             'Content-Type': 'application/json',
