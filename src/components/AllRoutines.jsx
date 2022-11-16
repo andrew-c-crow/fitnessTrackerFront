@@ -17,7 +17,7 @@ useEffect(() => {
 
   return (
     <div>
-      {routineData}
+      I am Routines
     </div>
   )
 
