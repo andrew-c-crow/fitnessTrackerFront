@@ -11,7 +11,7 @@ const Navbar = () => {
           <Link to="register"><button className="navbuttons">Register</button></Link>
           <Link to="activities"><button className="navbuttons">Activities</button></Link>
           <Link to="routines"><button className="navbuttons">Routines</button></Link>
-          <Link to="profile"><button className="navbuttons">My Routines</button></Link>
+          <Link to="myroutines"><button className="navbuttons">My Routines</button></Link>
   </div>
   <Outlet/>
   </>
