@@ -50,3 +50,33 @@ export async function registerUser(registerData) {
     console.log(result, "!!!!")
     return result;
   }
+
+  export async function getPublicRoutinesByUser() {
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const response = await fetch(
+      `${BASE_URL}/users/:username/routines`,
+      options
+    );
+    const result = await response.json();
+    console.log(result, "publicroutinesbyuser")
+    return result;
+  }
+
+  export async function getRoutines() {
+    const options = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const response = await fetch(
+      `${BASE_URL}/routines`,
+      options
+    );
+    const result = await response.json();
+    console.log(result, "routines")
+    return result;
+  }

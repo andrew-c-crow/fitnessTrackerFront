@@ -10,7 +10,8 @@ const Navbar = () => {
           <Link to="login"><button className="navbuttons">Login</button></Link>
           <Link to="register"><button className="navbuttons">Register</button></Link>
           <Link to="activities"><button className="navbuttons">Activities</button></Link>
-          <Link to="profile"><button className="navbuttons">My Profile</button></Link>
+          <Link to="routines"><button className="navbuttons">Routines</button></Link>
+          <Link to="profile"><button className="navbuttons">My Routines</button></Link>
   </div>
   <Outlet/>
   </>

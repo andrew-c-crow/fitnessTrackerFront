@@ -30,7 +30,7 @@ const Login = () => {
 
         // navigate to user profile when functioning
         if (token) {
-            navigate("/");
+            navigate("/profile");
         }
     }
         return (
