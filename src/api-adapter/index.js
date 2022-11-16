@@ -80,3 +80,17 @@ export async function registerUser(registerData) {
     console.log(result, "routines")
     return result;
   }
+
+  export async function createRoutines(createData) {
+    const options = {
+      method: "POST",
+      body: JSON.stringify((createData),)
+      }
+      const response = await fetch(
+        `${BASE_URL}/api/routines`,
+        options
+      );
+      const result = await response.json();
+      return result;
+    }
+  

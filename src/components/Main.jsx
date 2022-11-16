@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Navbar, Home, Login, Register, AllActivities, AllRoutines, Profile, SeeActivities} from './'
+import {Navbar, Home, Login, Register, AllActivities, AllRoutines, MyRoutines, SeeActivities} from './'
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -32,7 +32,7 @@ const Main = () => {
     <Route path="activities" element= {<AllActivities/>}/>
     <Route path="routines" element= {<AllRoutines/>}/>
     <Route path="routines/seeactivities/:routineid" element= {<SeeActivities setRoutineData= {setRoutineData} routineData={routineData}/>}/>
-    <Route path="myroutines" element= {<Profile/>}/>
+    <Route path="myroutines" element= {<MyRoutines/>}/>
   </Route>
     )
   )
