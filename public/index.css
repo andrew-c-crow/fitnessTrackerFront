@@ -35,3 +35,7 @@ position:absolute}
   border: 3px inset silver;
   border-radius: 10px;
 }
+
+#addActivityForm {
+  border: 3px inset silver;
+}

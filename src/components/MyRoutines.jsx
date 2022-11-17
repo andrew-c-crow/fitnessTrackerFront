@@ -17,6 +17,7 @@ const MyRoutines = (props) => {
   const [goal, setGoal] = useState("");
   const [isPublic, setIsPublic] = useState(true); // will make changes later
   const [activitiesData, setActivitiesData] = useState([]);
+  const [updateData, setUpdateData] = useState([]);
 
   const createData = { name, goal, isPublic, token };
 
@@ -85,33 +86,32 @@ const MyRoutines = (props) => {
               }}
             />
             <button type="submit">Create Routine</button>
-            <div>
-              {routineData.map((routine, index) => {
-                return (
-                  <div key={index} className="tabs">
-                    <h3>{routine.name}</h3>
-                    <h4>{routine.creatorName}</h4>
-                    <h4>{routine.goal}</h4>
-                    <DetailButton routineId={routine.id} />
-                    <button>Edit Routine</button>
-                    <button>Delete Routine</button>
-                    {activitiesData.map((activity, index) => {
-                      return (
-                        <div key={index}>
-                          <label>
-                            {activity.name}
-                            <select>
-                              <option value={activity.name}></option>
-                            </select>
-                          </label>
-                        </div>
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </div>
           </form>
+          <div>
+            {routineData.map((routine, index) => {
+              return (
+                <div key={index} className="tabs">
+                  <h3>{routine.name}</h3>
+                  <h4>{routine.creatorName}</h4>
+                  <h4>{routine.goal}</h4>
+                  <DetailButton routineId={routine.id} />
+                  <button>Edit Routine</button>
+                  <button>Delete Routine</button>
+                  <form id="addActivityForm">
+                    <select>
+                      {activitiesData.map((activity, index) => {
+                        return (
+                          <option key={index} value={activity.name}>
+                            {activity.name}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </form>
+                </div>
+              );
+            })}
+          </div>
         </h2>
       </div>
       <div>
