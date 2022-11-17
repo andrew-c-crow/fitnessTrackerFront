@@ -22,7 +22,7 @@ const AllRoutines = () => {
         {routineData.length ? (
           routineData.map((routine, index) => {
             return (
-              <div key={index} className="routineTabs">
+              <div key={index} className="tabs">
                 <div>
                   <h3>{routine.name}</h3>
                 </div>

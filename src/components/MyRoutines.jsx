@@ -28,17 +28,6 @@ const MyRoutines = (props) => {
     }
     getRoutineData()
   }, [])
-console.log(routineData)
-
-  // useEffect(() => {
-  //   async function getProfileData() {
-  //     let data = await getProfile(token);
-  //     console.log(data)
-  //   }
-  //   getProfileData();
-  // }, []);
-
-
 
   function logOut() {
     localStorage.removeItem("token");
@@ -55,15 +44,15 @@ console.log(routineData)
             <input type="text" placeholder="goal" name="goal"
             value={goal} onChange={(event) => {
               setGoal(event.target.value)}}/>
-            <div className="isPublicTitle">Would you like your routine public?</div>
+            <div className="isPublicTitle">Would you like your routine private?</div>
             <input type="checkbox" name="isPublic"
             value={isPublic} onChange={(event) => {
-              setIsPublic(event.target.value)}}/>
+              setIsPublic(event.target.value = false)}}/>
             <button type="submit">Create Routine</button>
               <div>
               {routineData.map((routine, index) => {
                 return (
-                  <div key= {index} className= "routineTabs">
+                  <div key= {index} className= "tabs">
                     <h3>{routine.name}</h3>
                     <h4>{routine.creatorName}</h4>
                     <h4>{routine.goal}</h4>
