@@ -112,3 +112,18 @@ export async function createActivity(activityData) {
   console.log(result, "answer");
   return result;
 }
+
+export async function updateRoutine(updateData) {
+  const options = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${updateData.token}`,
+    },
+    method: "PATCH",
+    body: JSON.stringify(updateData),
+  };
+  const response = await fetch(`${BASE_URL}/routines/${updateData.id}`, options);
+  const result = await response.json();
+  console.log(result, "hooplah");
+  return result;
+}
