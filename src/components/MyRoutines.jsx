@@ -5,6 +5,7 @@ import {
   getProfile,
   getPublicRoutinesByUser,
   getActivities,
+  updateRoutine
 } from "../api-adapter";
 import { DetailButton } from "./";
 
@@ -95,7 +96,15 @@ const MyRoutines = (props) => {
                   <h4>{routine.creatorName}</h4>
                   <h4>{routine.goal}</h4>
                   <DetailButton routineId={routine.id} />
+                  <form>
+                    <input>
+                    </input>
+                    <input>
+                    </input>
+                  </form>
                   <button>Edit Routine</button>
+                  {//add Link to EditRoutine component here and pass in necessary props to that component.
+                    }
                   <button>Delete Routine</button>
                   <form id="addActivityForm">
                     <select>
@@ -134,3 +143,6 @@ const MyRoutines = (props) => {
 };
 
 export default MyRoutines;
+
+
+// Guide for PATCH routine 1. create new component. 2. Create link on edit button to travel to routines/:routineId. 3. create wildcard url path for routineId. 4. fetch call within new component based on the routine id within the useParams variable. 5. 
