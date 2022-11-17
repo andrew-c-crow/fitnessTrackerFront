@@ -51,14 +51,15 @@ export async function registerUser(registerData) {
     return result;
   }
 
-  export async function getPublicRoutinesByUser() {
+  export async function getPublicRoutinesByUser(token, username) {
     const options = {
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
       },
     };
     const response = await fetch(
-      `${BASE_URL}/users/:username/routines`,
+      `${BASE_URL}/users/${username}/routines`,
       options
     );
     const result = await response.json();
@@ -82,15 +83,21 @@ export async function registerUser(registerData) {
   }
 
   export async function createRoutines(createData) {
+    console.log(createData)
     const options = {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${createData.token}`
+      },
       method: "POST",
-      body: JSON.stringify((createData),)
+      body: JSON.stringify(createData)
       }
       const response = await fetch(
-        `${BASE_URL}/api/routines`,
+        `${BASE_URL}/routines`,
         options
       );
       const result = await response.json();
+      console.log(result, "answer")
       return result;
     }
   
