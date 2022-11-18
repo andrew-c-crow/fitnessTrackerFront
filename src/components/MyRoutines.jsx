@@ -14,7 +14,7 @@ const MyRoutines = (props) => {
   const token = localStorage.getItem("token");
   // console.log(token)
 
-  const [routineData, setRoutineData] = useState([]);
+  const [routineState, setRoutineState] = useState([]);
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [isPublic, setIsPublic] = useState(true); // will make changes later
@@ -24,7 +24,11 @@ const MyRoutines = (props) => {
   const [duration, setDuration] = useState(0);
   const [updateData, setUpdateData] = useState([]);
 
-console.log(routineData, "I am routineData")
+  // console.log(routineState, "I am routineState");
+
+  const myFilteredRoutines = props.routineData.filter((e) => {
+    // if (e.creatorId == )
+  })
 
   const createData = { name, goal, isPublic, token };
 
@@ -34,20 +38,23 @@ console.log(routineData, "I am routineData")
   }
 
   
-  
-  const activityData = { activityId, count, duration, token };
 
   async function handleSubmit2(event) {
+    const activityData = { activityId: Number(activityId), count: Number(count), duration: Number(duration), token };
     event.preventDefault();
     const addActivity = await addActivityToRoutine(activityData);
   }
+
+  console.log(activityId, "activityId")
+
+  // Setter function on ActivityId is not running correctly. Must fix to allow activityId to pass correctly when adding activity to routine.
 
   useEffect(() => {
     async function getRoutineData() {
       const data = await getProfile(token);
       const username = data.username;
       const routines = await getPublicRoutinesByUser(token, username);
-      setRoutineData(routines);
+      setRoutineState(routines);
     }
     getRoutineData();
   }, []);
@@ -59,7 +66,7 @@ console.log(routineData, "I am routineData")
     }
     getActivityData();
   }, []);
-  console.log(activitiesData, "howwww");
+  // console.log(activitiesData, "howwww");
 
   function logOut() {
     localStorage.removeItem("token");
@@ -104,15 +111,19 @@ console.log(routineData, "I am routineData")
             <button type="submit">Create Routine</button>
           </form>
           <div>
-            {routineData.map((routine, index) => {
-              return (
+            {routineState.map((routine, index) => {
+              return  (
                 <div key={index} className="tabs">
                   <h3>{routine.name}</h3>
                   <h4>{routine.creatorName}</h4>
                   <h4>{routine.goal}</h4>
                   <DetailButton routineId={routine.id} />
-                  
-                  <EditButton routineId={routine.id} routineName={routine.name} routineGoal={routine.goal} />
+
+                  <EditButton
+                    routineId={routine.id}
+                    routineName={routine.name}
+                    routineGoal={routine.goal}
+                  />
 
                   {
                     //add Link to EditRoutine component here and pass in necessary props to that component.
@@ -120,10 +131,12 @@ console.log(routineData, "I am routineData")
 
                   <div>
                     <form onSubmit={handleSubmit2} id="addActivityForm">
-                      <select>
+                      <select onChange= {(event) => {
+                          setActivityId(event.target.id)}}>
                         {activitiesData.map((activity, index) => {
                           return (
-                            <option key={index} value={activity.name}>
+                            <option key={index} value={activity.name}
+                            id= {activity.id}>
                               {activity.name}
                             </option>
                           );
@@ -153,7 +166,7 @@ console.log(routineData, "I am routineData")
                     </form>
                   </div>
                 </div>
-              );
+              ) ;
             })}
           </div>
         </h2>

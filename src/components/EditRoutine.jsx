@@ -4,37 +4,49 @@ import { useParams } from "react-router-dom"
 import DeleteButton from "./DeleteButton";
 
 const EditRoutine = (props) => {
-  const {routineid} = useParams()
-  console.log(routineid)
-  const token = localStorage.getItem("token")
-  const filteredRoutines = props.routineData.filter((e) => {
-    if (e.id == routineid) {
-      console.log('yooooohoooo')
-      return true
-    }
-  })
-
   const [name, setName] = useState("")
   const [goal, setGoal] = useState("")
+  const [filteredRoutines, setFilteredRoutines] = useState({})
+
+  const {routineid} = useParams()
+
+  console.log(routineid)
+
+  useEffect(() => {
+    // console.log(props.routineData)
+    const filteredData = props.routineData.find((e) => {
+      // console.log(e)
+      if (e.id == routineid) {
+        console.log('yooooohoooo')
+        return true
+      }
+    })
+    console.log(filteredData)
+    setFilteredRoutines(filteredData)
+  }, [props.routineData])
+
   // const [isPublic, setIsPublic] = useState(true)
 
-  const editedRoutine = {name, goal, routineid, token}
+  
 
   // useEffect(() => {
+   
   async function handleSubmit (event) {
     event.preventDefault()
+    const token = localStorage.getItem("token")
+    const editedRoutine = {name, goal, routineid, token}
     const update = await updateRoutine(editedRoutine)
   }
   // handleSubmit()
 // }, []) 
 console.log(filteredRoutines)
-return filteredRoutines ? (
+return  (
   <div key={routineid}>
   <div>
     <h1>Edit Routine</h1>
     <div>
-      <div><span>Current Name: </span>{filteredRoutines[0]}</div>
-      <div><span>Current Goal: </span> {filteredRoutines[0]}</div>
+      <div><span>Current Name: </span>{filteredRoutines.name}</div>
+      <div><span>Current Goal: </span> {filteredRoutines.goal}</div>
     </div>
     <form onSubmit={handleSubmit}>
       <label>Name: </label>
@@ -64,7 +76,9 @@ return filteredRoutines ? (
     <DeleteButton routineid={routineid} />
   </div>
   </div>
-) : null;
+) 
+// : 
+{/* <p>These are not the routines you are looking for</p>; */}
 }
 
 export default EditRoutine

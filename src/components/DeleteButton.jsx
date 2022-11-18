@@ -11,6 +11,7 @@ const DeleteButton = (props) => {
     async function obliterateRoutine(event) {
         event.preventDefault();
         const deletedRoutine = await deleteRoutines(obliterate);
+        console.log(deletedRoutine, "leave us")
     }
 
   return <Link to={`/myroutines`}>

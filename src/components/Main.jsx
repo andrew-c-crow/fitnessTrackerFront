@@ -32,7 +32,7 @@ const Main = () => {
     <Route path="activities" element= {<AllActivities/>}/>
     <Route path="routines" element= {<AllRoutines/>}/>
     <Route path="routines/seeactivities/:routineid" element= {<SeeActivities setRoutineData= {setRoutineData} routineData={routineData}/>}/>
-    <Route path="myroutines" element= {<MyRoutines/>}/>
+    <Route path="myroutines" element= {<MyRoutines routineData = {routineData}/>}/>
     <Route path="routines/:routineid" element= {<EditRoutine routineData={routineData}/>}/>
   </Route>
     )
