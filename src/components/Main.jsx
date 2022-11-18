@@ -33,7 +33,7 @@ const Main = () => {
     <Route path="routines" element= {<AllRoutines/>}/>
     <Route path="routines/seeactivities/:routineid" element= {<SeeActivities setRoutineData= {setRoutineData} routineData={routineData}/>}/>
     <Route path="myroutines" element= {<MyRoutines/>}/>
-    <Route path="routines/:routineid" element= {<EditRoutine/>}/>
+    <Route path="routines/:routineid" element= {<EditRoutine routineData={routineData}/>}/>
   </Route>
     )
   )

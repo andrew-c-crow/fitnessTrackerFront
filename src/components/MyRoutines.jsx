@@ -112,12 +112,12 @@ console.log(routineData, "I am routineData")
                   <h4>{routine.goal}</h4>
                   <DetailButton routineId={routine.id} />
                   
-                  <EditButton routineId={routine.id}/>
+                  <EditButton routineId={routine.id} routineName={routine.name} routineGoal={routine.goal} />
 
                   {
                     //add Link to EditRoutine component here and pass in necessary props to that component.
                   }
-                  <button>Delete Routine</button>
+
                   <div>
                     <form onSubmit={handleSubmit2} id="addActivityForm">
                       <select>

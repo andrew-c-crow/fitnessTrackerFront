@@ -68,7 +68,6 @@ export async function getRoutines() {
 }
 
 export async function createRoutines(createData) {
-  console.log(createData);
   const options = {
     headers: {
       "Content-Type": "application/json",
@@ -83,7 +82,18 @@ export async function createRoutines(createData) {
   return result;
 }
 
-// export async function deleteRoutines()
+export async function deleteRoutines(obliterateData) {
+  const options = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${obliterateData.token}`,
+    },
+    method: "DELETE"
+  };
+  const response = await fetch(`${BASE_URL}/routines/${obliterateData.id}`, options);
+  const result = await response.json();
+  return result
+}
 
 export async function getActivities() {
 const options = {

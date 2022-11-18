@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { updateRoutine } from "../api-adapter";
 import { useParams } from "react-router-dom"
+import DeleteButton from "./DeleteButton";
 
-const EditRoutine = () => {
-
+const EditRoutine = (props) => {
   const {routineid} = useParams()
   console.log(routineid)
   const token = localStorage.getItem("token")
+  const filteredRoutines = props.routineData.filter((e) => {
+    if (e.id == routineid) {
+      console.log('yooooohoooo')
+      return true
+    }
+  })
 
   const [name, setName] = useState("")
   const [goal, setGoal] = useState("")
@@ -21,10 +27,15 @@ const EditRoutine = () => {
   }
   // handleSubmit()
 // }, []) 
-
-return (
+console.log(filteredRoutines)
+return filteredRoutines ? (
+  <div key={routineid}>
   <div>
     <h1>Edit Routine</h1>
+    <div>
+      <div><span>Current Name: </span>{filteredRoutines[0]}</div>
+      <div><span>Current Goal: </span> {filteredRoutines[0]}</div>
+    </div>
     <form onSubmit={handleSubmit}>
       <label>Name: </label>
       <input
@@ -49,8 +60,11 @@ return (
       <button type="submit">Submit</button>
     </form>
   </div>
-)
-
+  <div>
+    <DeleteButton routineid={routineid} />
+  </div>
+  </div>
+) : null;
 }
 
 export default EditRoutine
