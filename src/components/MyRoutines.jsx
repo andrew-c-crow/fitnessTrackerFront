@@ -5,7 +5,8 @@ import {
   getProfile,
   getPublicRoutinesByUser,
   getActivities,
-  updateRoutine
+  addActivityToRoutine,
+  updateRoutine,
 } from "../api-adapter";
 import { DetailButton } from "./";
 
@@ -18,6 +19,9 @@ const MyRoutines = (props) => {
   const [goal, setGoal] = useState("");
   const [isPublic, setIsPublic] = useState(true); // will make changes later
   const [activitiesData, setActivitiesData] = useState([]);
+  const [activityId, setActivityId] = useState(0);
+  const [count, setCount] = useState(0);
+  const [duration, setDuration] = useState(0);
   const [updateData, setUpdateData] = useState([]);
 
   const createData = { name, goal, isPublic, token };
@@ -25,6 +29,13 @@ const MyRoutines = (props) => {
   async function handleSubmit(event) {
     event.preventDefault();
     const addPost = await createRoutines(createData);
+  }
+
+  const activityData = { activityId, count, duration };
+
+  async function handleSubmit2(event) {
+    event.preventDefault();
+    const addActivity = await addActivityToRoutine(activityData);
   }
 
   useEffect(() => {
@@ -97,26 +108,48 @@ const MyRoutines = (props) => {
                   <h4>{routine.goal}</h4>
                   <DetailButton routineId={routine.id} />
                   <form>
-                    <input>
-                    </input>
-                    <input>
-                    </input>
+                    <input></input>
+                    <input></input>
                   </form>
                   <button>Edit Routine</button>
-                  {//add Link to EditRoutine component here and pass in necessary props to that component.
-                    }
+                  {
+                    //add Link to EditRoutine component here and pass in necessary props to that component.
+                  }
                   <button>Delete Routine</button>
-                  <form id="addActivityForm">
-                    <select>
-                      {activitiesData.map((activity, index) => {
-                        return (
-                          <option key={index} value={activity.name}>
-                            {activity.name}
-                          </option>
-                        );
-                      })}
-                    </select>
-                  </form>
+                  <div>
+                    <form onSubmit={handleSubmit2} id="addActivityForm">
+                      <select>
+                        {activitiesData.map((activity, index) => {
+                          return (
+                            <option key={index} value={activity.name}>
+                              {activity.name}
+                            </option>
+                          );
+                        })}
+                      </select>
+                      <input
+                        type="text"
+                        placeholder="count"
+                        name="count"
+                        value={count}
+                        onChange={(event) => {
+                          setCount(event.target.value);
+                        }}
+                      ></input>
+                      <input
+                        type="text"
+                        placeholder="duration"
+                        name="duration"
+                        value={duration}
+                        onChange={(event) => {
+                          setDuration(event.target.value);
+                        }}
+                      ></input>
+                      <button type="submit">
+                        Add Activitiy to this Routine
+                      </button>
+                    </form>
+                  </div>
                 </div>
               );
             })}
@@ -144,5 +177,4 @@ const MyRoutines = (props) => {
 
 export default MyRoutines;
 
-
-// Guide for PATCH routine 1. create new component. 2. Create link on edit button to travel to routines/:routineId. 3. create wildcard url path for routineId. 4. fetch call within new component based on the routine id within the useParams variable. 5. 
+// Guide for PATCH routine 1. create new component. 2. Create link on edit button to travel to routines/:routineId. 3. create wildcard url path for routineId. 4. fetch call within new component based on the routine id within the useParams variable. 5.
