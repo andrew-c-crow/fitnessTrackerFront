@@ -8,7 +8,7 @@ import {
   addActivityToRoutine,
   updateRoutine,
 } from "../api-adapter";
-import { DetailButton } from "./";
+import { DetailButton, EditButton } from "./";
 
 const MyRoutines = (props) => {
   const token = localStorage.getItem("token");
@@ -24,6 +24,8 @@ const MyRoutines = (props) => {
   const [duration, setDuration] = useState(0);
   const [updateData, setUpdateData] = useState([]);
 
+console.log(routineData, "I am routineData")
+
   const createData = { name, goal, isPublic, token };
 
   async function handleSubmit(event) {
@@ -31,7 +33,9 @@ const MyRoutines = (props) => {
     const addPost = await createRoutines(createData);
   }
 
-  const activityData = { activityId, count, duration };
+  
+  
+  const activityData = { activityId, count, duration, token };
 
   async function handleSubmit2(event) {
     event.preventDefault();
@@ -107,11 +111,9 @@ const MyRoutines = (props) => {
                   <h4>{routine.creatorName}</h4>
                   <h4>{routine.goal}</h4>
                   <DetailButton routineId={routine.id} />
-                  <form>
-                    <input></input>
-                    <input></input>
-                  </form>
-                  <button>Edit Routine</button>
+                  
+                  <EditButton routineId={routine.id}/>
+
                   {
                     //add Link to EditRoutine component here and pass in necessary props to that component.
                   }

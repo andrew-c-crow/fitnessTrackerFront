@@ -122,13 +122,14 @@ export async function updateRoutine(updateData) {
     method: "PATCH",
     body: JSON.stringify(updateData),
   };
-  const response = await fetch(`${BASE_URL}/routines/${updateData.id}`, options);
+  const response = await fetch(`${BASE_URL}/routines/${updateData.routineid}`, options);
   const result = await response.json();
   console.log(result, "hooplah");
   return result;
 }
 
 export async function addActivityToRoutine(addData) {
+  console.log(addData, "I am addData")
   const options = {
     headers: {
       "Content-Type": "application/json",
@@ -137,7 +138,7 @@ export async function addActivityToRoutine(addData) {
     method: "POST",
     body: JSON.stringify(addData),
   };
-  const response = await fetch(`${BASE_URL}/routines/${addData.id}/activities`, options);
+  const response = await fetch(`${BASE_URL}/routines/${addData.activityId}/activities`, options);
   const result = await response.json();
   console.log(result, "addData");
   return result;
