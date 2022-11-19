@@ -3,9 +3,13 @@ import { useParams, Link } from "react-router-dom";
 
 const SeeActivities = (props) => {
   const { routineid } = useParams();
+
+  
   const filteredActivities = props.routineData.filter((element) => {
     if (element.id == routineid) return true;
   });
+
+  
 
   return filteredActivities ? (
     <div key={routineid}>
@@ -31,7 +35,7 @@ const SeeActivities = (props) => {
         </h3>
       </div>
     </div>
-  ) : null;
+  ) : <div>Loading Activities...</div>;
 };
 
 export default SeeActivities;
