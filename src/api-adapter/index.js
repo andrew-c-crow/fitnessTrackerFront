@@ -148,7 +148,7 @@ export async function addActivityToRoutine(addData) {
     method: "POST",
     body: JSON.stringify(addData),
   };
-  const response = await fetch(`${BASE_URL}/routines/${addData.activityId}/activities`, options);
+  const response = await fetch(`${BASE_URL}/routines/${addData.routineid}/activities`, options);
   const result = await response.json();
   console.log(result, "addData");
   return result;
