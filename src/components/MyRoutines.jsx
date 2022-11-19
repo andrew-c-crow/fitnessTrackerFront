@@ -17,7 +17,7 @@ const MyRoutines = (props) => {
   const [routineState, setRoutineState] = useState([]);
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
-  const [isPublic, setIsPublic] = useState(true); // will make changes later
+  const [isPublic, setIsPublic] = useState(false); // will make changes later
   // const [activitiesData, setActivitiesData] = useState([]);
   // const [activityId, setActivityId] = useState(0);
   // const [count, setCount] = useState(0);
@@ -29,6 +29,8 @@ const MyRoutines = (props) => {
   // const myFilteredRoutines = props.routineData.filter((e) => {
   //   if (e.creatorId == )
   // })
+
+  
 
   const createData = { name, goal, isPublic, token };
 
@@ -44,6 +46,10 @@ const MyRoutines = (props) => {
   //   const activityData = { activityId: Number(activityId), count: Number(count), duration: Number(duration), token };
   //   const addActivity = await addActivityToRoutine(activityData);
   // }
+
+  const handleOnChange = () => {
+    setIsPublic(!isPublic)
+  }
 
   // console.log(activityId, "activityId")
 
@@ -98,15 +104,15 @@ const MyRoutines = (props) => {
               }}
             />
             <div className="isPublicTitle">
-              Would you like your routine private?
+              Would you like your routine public?
             </div>
             <input
               type="checkbox"
+              id="isPublic"
               name="isPublic"
-              value={isPublic}
-              onChange={(event) => {
-                setIsPublic((event.target.value = false));
-              }}
+              value="isPublic"
+              public="false"
+              onChange={handleOnChange}
             />
             <button type="submit">Create Routine</button>
           </form>

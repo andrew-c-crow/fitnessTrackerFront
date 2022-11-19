@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import {Navbar, Home, Login, Register, AllActivities, AllRoutines, MyRoutines, SeeActivities, EditRoutine} from './'
+import {Navbar, Home, Login, Register, AllActivities, AllRoutines, MyRoutines, SeeActivities, EditRoutine,} from './'
 import {
   createBrowserRouter,
   createRoutesFromElements,
