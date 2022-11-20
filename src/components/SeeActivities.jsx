@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import DeleteActivityButton from "./DeleteActivityButton";
+import SeeActivityButton from "./SeeActivityButton";
 
 const SeeActivities = (props) => {
   const { routineid, activityid } = useParams();
@@ -19,6 +19,7 @@ const SeeActivities = (props) => {
       <div>
         <h3>
           {filteredActivities[0].activities.map((activity, index) => {
+            // console.log(activity)
             return (
               <div key={index} className="singleActivity">
                 <div className="activityName">{activity.name}</div>
@@ -28,7 +29,7 @@ const SeeActivities = (props) => {
                   Duration: {activity.duration}
                 </div>
                 <div>
-                  <DeleteActivityButton activityid={activityid}/>
+                  <SeeActivityButton activityid= {activity.id}/>
                 </div>
               </div>
             );

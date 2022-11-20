@@ -18,19 +18,7 @@ const MyRoutines = (props) => {
   const [name, setName] = useState("");
   const [goal, setGoal] = useState("");
   const [isPublic, setIsPublic] = useState(false); // will make changes later
-  // const [activitiesData, setActivitiesData] = useState([]);
-  // const [activityId, setActivityId] = useState(0);
-  // const [count, setCount] = useState(0);
-  // const [duration, setDuration] = useState(0);
-  // const [updateData, setUpdateData] = useState([]);
 
-  // console.log(routineState, "I am routineState");
-
-  // const myFilteredRoutines = props.routineData.filter((e) => {
-  //   if (e.creatorId == )
-  // })
-
-  
 
   const createData = { name, goal, isPublic, token };
 
@@ -39,19 +27,9 @@ const MyRoutines = (props) => {
     const addPost = await createRoutines(createData);
   }
 
-  
-
-  // async function handleSubmit2(event) {
-  //   event.preventDefault();
-  //   const activityData = { activityId: Number(activityId), count: Number(count), duration: Number(duration), token };
-  //   const addActivity = await addActivityToRoutine(activityData);
-  // }
-
   const handleOnChange = () => {
     setIsPublic(!isPublic)
   }
-
-  // console.log(activityId, "activityId")
 
   // Setter function on ActivityId is not running correctly. Must fix to allow activityId to pass correctly when adding activity to routine.
 
@@ -65,22 +43,13 @@ const MyRoutines = (props) => {
     getRoutineData();
   }, []);
 
-  // useEffect(() => {
-  //   async function getActivityData() {
-  //     const allActivities = await getActivities();
-  //     setActivitiesData(allActivities);
-  //   }
-  //   getActivityData();
-  // }, []);
-  // console.log(activitiesData, "howwww");
-
   function logOut() {
     localStorage.removeItem("token");
   }
 
   return token ? (
     <>
-      <div>
+      <div >
         <h2 className="header">Create A Routine</h2>
           <form onSubmit={handleSubmit}>
             <input
@@ -130,52 +99,6 @@ const MyRoutines = (props) => {
                     routineName={routine.name}
                     routineGoal={routine.goal}
                   />
-
-                  {
-                    //add Link to EditRoutine component here and pass in necessary props to that component.
-                  }
-
-                  {/* <div>
-                    <form onSubmit={handleSubmit2} id="addActivityForm">
-                      <select onChange= {(event) => {
-                        console.log(event.target.value)
-                        setActivityId(event.target.value)}}>
-                        {activitiesData.map((activity, index) => {
-                          // console.log(activity.name, activity.id)
-                          return (
-                            <option 
-                            key={index} 
-                            value={activity.id}
-                            id={activity.id}
-                            >
-                              {activity.name}
-                            </option>
-                          );
-                        })}
-                      </select>
-                      <input
-                        type="text"
-                        placeholder="count"
-                        name="count"
-                        value={count}
-                        onChange={(event) => {
-                          setCount(event.target.value);
-                        }}
-                      ></input>
-                      <input
-                        type="text"
-                        placeholder="duration"
-                        name="duration"
-                        value={duration}
-                        onChange={(event) => {
-                          setDuration(event.target.value);
-                        }}
-                      ></input>
-                      <button type="submit">
-                        Add Activitiy to this Routine
-                      </button>
-                    </form>
-                  </div> */}
                 </div>
                 </div>
               ) ;

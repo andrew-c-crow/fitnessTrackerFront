@@ -18,7 +18,7 @@ const AllActivities = () => {
   useEffect(() => {
     async function getActivityData() {
       const allActivities = await getActivities();
-      console.log(allActivities, "allActivities")
+      // console.log(allActivities, "allActivities")
 
       setActivitiesData(allActivities);
     }

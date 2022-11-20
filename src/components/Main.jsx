@@ -9,6 +9,7 @@ import {
   MyRoutines,
   SeeActivities,
   EditRoutine,
+  SeeActivity
 } from "./";
 import {
   createBrowserRouter,
@@ -16,12 +17,12 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import { getRoutines } from "../api-adapter";
+import { getRoutines, getActivities } from "../api-adapter";
 
 const Main = () => {
   const [routineData, setRoutineData] = useState([]);
   const [activitiesData, setActivitiesData] = useState([]);
-
+  console.log(activitiesData)
   // console.log(routineData, "hello")
   useEffect(() => {
     async function getRoutineData() {
@@ -35,7 +36,7 @@ const Main = () => {
   useEffect(() => {
     async function getActivityData() {
       const allActivities = await getActivities();
-      console.log(allActivities, "yooo")
+      // console.log(allActivities, "yooo")
 
       setActivitiesData(allActivities);
     }
@@ -69,6 +70,7 @@ const Main = () => {
           path="routines/:routineid"
           element={<EditRoutine routineData={routineData} />}
         />
+        <Route path="routines/myactivities/:activityid" element={<SeeActivity activitiesData={activitiesData}/>} />
       </Route>
     )
   );
