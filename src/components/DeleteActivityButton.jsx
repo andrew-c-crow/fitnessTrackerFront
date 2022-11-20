@@ -4,18 +4,18 @@ import { deleteActivitiesFromRoutines } from "../api-adapter";
 
 
 const DeleteActivityButton = (props) => {
-    const id = props.routineid;
+    const id = props.Activityid;
     const token = localStorage.getItem('token');
     const nuke = { id, token };
 
-    async function nukeRoutine(event) {
+    async function nukeActivity(event) {
         event.preventDefault();
-        const deletedRoutine = await deleteActivitiesFromRoutines(nuke);
-        console.log(deletedRoutine, "leave us")
+        const deletedActivity = await deleteActivitiesFromRoutines(nuke);
+        console.log(deletedActivity, "leave us")
     }
 
-  return <Link to={`/myroutines`}>
-    <button className='deleteButton' onClick={nukeRoutine}>Delete Activity</button>
+  return <Link to={`/myActivitys`}>
+    <button className='deleteButton' onClick={nukeActivity}>Delete Activity</button>
   </Link>
 }
 
