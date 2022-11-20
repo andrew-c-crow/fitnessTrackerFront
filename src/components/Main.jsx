@@ -22,7 +22,7 @@ import { getRoutines, getActivities } from "../api-adapter";
 const Main = () => {
   const [routineData, setRoutineData] = useState([]);
   const [activitiesData, setActivitiesData] = useState([]);
-  console.log(activitiesData)
+  // console.log(activitiesData)
   // console.log(routineData, "hello")
   useEffect(() => {
     async function getRoutineData() {

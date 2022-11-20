@@ -4,9 +4,12 @@ import SeeActivityButton from "./SeeActivityButton";
 
 const SeeActivities = (props) => {
   const { routineid, activityid } = useParams();
+  const routineData = props.routineData;
 
-  const filteredActivities = props.routineData.filter((element) => {
-    if (element.id == routineid) return true;
+  const filteredActivities = routineData.filter((element) => {
+    if (element.id == routineid) {
+      return true;
+    }
   });
 
   return filteredActivities ? (
@@ -38,8 +41,11 @@ const SeeActivities = (props) => {
       </div>
     </div>
   ) : (
-    <div>Loading Activities...</div>
-  );
+  <div>
+    {console.log("line 45", routineData)}
+    {console.log("See Activities: Line 44, routineid", routineid)}
+    {console.log("line 46, filteredActivities(Should match above)", filteredActivities[0])}
+  </div>);
 };
 
 export default SeeActivities;
