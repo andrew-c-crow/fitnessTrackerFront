@@ -17,7 +17,7 @@ const AllRoutines = () => {
 
   return (
     <div>
-      <h1>I am Working Still</h1>
+      <h1 className="header">I am Working Still</h1>
       <div>
         {routineData.length ? (
           routineData.map((routine, index) => {

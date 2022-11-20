@@ -153,3 +153,16 @@ export async function addActivityToRoutine(addData) {
   console.log(result, "addData");
   return result;
 }
+
+export async function deleteActivitiesFromRoutines(nukeData) {
+  const options = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${nukeData.token}`,
+    },
+    method: "DELETE"
+  };
+  const response = await fetch(`${BASE_URL}/routine_activities/${nukeData.id}`, options);
+  const result = await response.json();
+  return result
+}

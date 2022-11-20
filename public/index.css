@@ -1,5 +1,6 @@
 body {
   font-family: 'Raleway', Arial, sans-serif;
+  background-color: rgb(186, 191, 242);
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -8,13 +9,18 @@ body {
 
 #navbar {
   font-family: 'Poller One', Arial, sans-serif;
+  display: flex;
+  justify-content: space-between;
   flex-grow: 1;
   max-height: 10%;
   min-height: 40px;
-  background-color: #222222;
+  background-color: rgb(24, 19, 82);
   color: white;
   display: flex;
   align-items: center;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .error{ color:red;
 top: 50%;
@@ -39,3 +45,15 @@ position:absolute}
 #addActivityForm {
   border: 3px inset silver;
 }
+
+.header {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+

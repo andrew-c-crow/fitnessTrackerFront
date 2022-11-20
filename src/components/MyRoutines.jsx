@@ -81,8 +81,7 @@ const MyRoutines = (props) => {
   return token ? (
     <>
       <div>
-        <h2>
-          Create A Routine
+        <h2 className="header">Create A Routine</h2>
           <form onSubmit={handleSubmit}>
             <input
               type="text"
@@ -119,6 +118,7 @@ const MyRoutines = (props) => {
           <div>
             {routineState.map((routine, index) => {
               return  (
+                <div className="MyRoutinesTitle">My Routines
                 <div key={index} className="tabs">
                   <h3>{routine.name}</h3>
                   <h4>{routine.creatorName}</h4>
@@ -177,10 +177,11 @@ const MyRoutines = (props) => {
                     </form>
                   </div> */}
                 </div>
+                </div>
               ) ;
             })}
           </div>
-        </h2>
+        
       </div>
       <div>
         {localStorage.getItem("token") ? (

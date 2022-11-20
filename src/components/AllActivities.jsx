@@ -28,7 +28,7 @@ const AllActivities = () => {
 
   return token ? ( 
     <div>
-      <h1>I am THE Activities</h1>
+      <h1 className="header">I am THE Activities</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

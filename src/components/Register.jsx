@@ -47,7 +47,7 @@ const Register = () => {
         </div>
       ) : (
         <div>
-          <div>I am Register</div>
+          <div className="header">I am Register</div>
           <form className="form" onSubmit={handleSubmit}>
             <label className="formLabel">Username</label>
             <input
