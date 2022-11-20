@@ -164,5 +164,6 @@ export async function deleteActivitiesFromRoutines(nukeData) {
   };
   const response = await fetch(`${BASE_URL}/routine_activities/${nukeData.id}`, options);
   const result = await response.json();
+  console.log(result, "helloworld")
   return result
 }

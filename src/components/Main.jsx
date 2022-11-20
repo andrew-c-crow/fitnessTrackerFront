@@ -1,5 +1,15 @@
-import React, {useState, useEffect} from "react";
-import {Navbar, Home, Login, Register, AllActivities, AllRoutines, MyRoutines, SeeActivities, EditRoutine,} from './'
+import React, { useState, useEffect } from "react";
+import {
+  Navbar,
+  Home,
+  Login,
+  Register,
+  AllActivities,
+  AllRoutines,
+  MyRoutines,
+  SeeActivities,
+  EditRoutine,
+} from "./";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -9,8 +19,8 @@ import {
 import { getRoutines } from "../api-adapter";
 
 const Main = () => {
-
   const [routineData, setRoutineData] = useState([]);
+  const [activitiesData, setActivitiesData] = useState([]);
 
   // console.log(routineData, "hello")
   useEffect(() => {
@@ -22,27 +32,51 @@ const Main = () => {
     getRoutineData();
   }, []);
 
+  useEffect(() => {
+    async function getActivityData() {
+      const allActivities = await getActivities();
+      console.log(allActivities, "yooo")
+
+      setActivitiesData(allActivities);
+    }
+    getActivityData();
+  }, []);
 
   const router = createBrowserRouter(
     createRoutesFromElements(
-    <Route path="/" element={<Navbar/>}>
-    <Route path="register" element= {<Register/>}/>
-    <Route path="/" element= {<Home/>}/>
-    <Route path="login" element= {<Login/>}/>
-    <Route path="activities" element= {<AllActivities/>}/>
-    <Route path="routines" element= {<AllRoutines/>}/>
-    <Route path="routines/seeactivities/:routineid" element= {<SeeActivities setRoutineData= {setRoutineData} routineData={routineData}/>}/>
-    <Route path="myroutines" element= {<MyRoutines routineData = {routineData}/>}/>
-    <Route path="routines/:routineid" element= {<EditRoutine routineData={routineData}/>}/>
-  </Route>
+      <Route path="/" element={<Navbar />}>
+        <Route path="register" element={<Register />} />
+        <Route path="/" element={<Home />} />
+        <Route path="login" element={<Login />} />
+        <Route path="activities" element={<AllActivities />} />
+        <Route path="routines" element={<AllRoutines />} />
+        <Route
+          path="routines/seeactivities/:routineid"
+          element={
+            <SeeActivities
+              setRoutineData={setRoutineData}
+              routineData={routineData}
+              setActivitiesData={setActivitiesData}
+              activitiesData={activitiesData}
+            />
+          }
+        />
+        <Route
+          path="myroutines"
+          element={<MyRoutines routineData={routineData} />}
+        />
+        <Route
+          path="routines/:routineid"
+          element={<EditRoutine routineData={routineData} />}
+        />
+      </Route>
     )
-  )
+  );
 
   return (
     <div id="main">
-      <RouterProvider router={router}>
-      </RouterProvider>
-  </div>
+      <RouterProvider router={router}></RouterProvider>
+    </div>
   );
 };
 

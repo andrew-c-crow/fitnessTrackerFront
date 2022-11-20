@@ -1,15 +1,13 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
+import DeleteActivityButton from "./DeleteActivityButton";
 
 const SeeActivities = (props) => {
-  const { routineid } = useParams();
+  const { routineid, activityid } = useParams();
 
-  
   const filteredActivities = props.routineData.filter((element) => {
     if (element.id == routineid) return true;
   });
-
-  
 
   return filteredActivities ? (
     <div key={routineid}>
@@ -29,13 +27,18 @@ const SeeActivities = (props) => {
                 <div className="activityDuration">
                   Duration: {activity.duration}
                 </div>
+                <div>
+                  <DeleteActivityButton activityid={activityid}/>
+                </div>
               </div>
             );
           })}
         </h3>
       </div>
     </div>
-  ) : <div>Loading Activities...</div>;
+  ) : (
+    <div>Loading Activities...</div>
+  );
 };
 
 export default SeeActivities;

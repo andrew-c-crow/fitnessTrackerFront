@@ -4,7 +4,8 @@ import { deleteActivitiesFromRoutines } from "../api-adapter";
 
 
 const DeleteActivityButton = (props) => {
-    const id = props.Activityid;
+    const id = props.activityid;
+    console.log(props, "props")
     const token = localStorage.getItem('token');
     const nuke = { id, token };
 
