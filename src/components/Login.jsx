@@ -54,6 +54,7 @@ const Login = () => {
                     <input
                       type="text"
                       className="userpass"
+                      id="username"
                       required
                       onChange={handleChange}
                     ></input>
@@ -61,6 +62,7 @@ const Login = () => {
                     <input
                       type="password"
                       className="userpass"
+                      id="password"
                       required
                       onChange={handleChange}
                     ></input>

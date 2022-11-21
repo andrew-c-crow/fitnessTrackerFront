@@ -53,12 +53,14 @@ const Register = () => {
             <input
               type="text"
               className="userpass"
+              id="username"
               required
               onChange={handleChange}
             ></input>
             <label className="formLabel">Password:</label>
             <input
               type="password"
+              id="password"
               className="userpass"
               required
               onChange={handleChange}
