@@ -3,8 +3,8 @@ import React from "react";
 
 const Home = () => {
   return (
-    <div>
-      I am Home
+    <div className="homeTitle">
+      Welcome to Fitness Trackr
     </div>
   )
 

@@ -1,6 +1,6 @@
 body {
-  font-family: 'Raleway', Arial, sans-serif;
-  background-color: rgb(186, 191, 242);
+  font-family: 'Space Mono', monospace;
+  background-image: linear-gradient(to bottom right, rgb(244, 91, 91), rgb(248, 181, 56), rgb(249, 249, 80), rgb(84, 177, 84), rgb(103, 103, 234), rgb(234, 171, 234), rgb(169, 83, 169));
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -8,7 +8,6 @@ body {
 
 
 #navbar {
-  font-family: 'Poller One', Arial, sans-serif;
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
@@ -21,7 +20,35 @@ body {
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
+  border-bottom: 10px groove rgb(165, 146, 203);
+  position: sticky;
+  top: 0;
+  width: 98%;
 }
+
+.navbuttons {
+  font-family: 'Space Mono', monospace;
+  font-size: large;
+  margin: 10px;
+  background-color: rgb(138, 103, 184);
+  border: 5px outset rgb(138, 103, 184);
+}
+
+.navbuttons:hover {
+  border: 3px solid rgb(255, 255, 255);
+  box-shadow: 3px 3px 10px white;
+  transform: scale(1.25);
+  color: white;
+}
+
+.homeTitle {
+  font-size: 40px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  position:absolute}
+
 .error{ color:red;
 top: 50%;
 left: 50%;
@@ -57,3 +84,49 @@ position:absolute}
   justify-content: center;
 }
 
+.userpass {
+  caret-color: rgb(138, 103, 184);
+  border: 5px inset rgb(177, 182, 229);
+  background-color: rgb(186, 191, 242);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.formLabel {
+
+}
+
+.loginbutton {
+  border: 5px outset rgb(177, 182, 229);
+  background-color: rgb(168, 176, 241);
+  margin-left: 10px;
+  
+}
+
+.loginbutton:hover {
+  box-shadow: 3px 3px 10px white;
+  transform: scale(1.25);
+}
+
+.isPublicTitle {
+  margin: 10px;
+}
+
+.isPublicWhole {
+  margin: 10px;
+}
+
+.MyRoutinesTitle {
+  text-align: center;
+}
+
+.dropdown {
+  margin: 10px;
+  background-color: rgb(196, 199, 231);
+}
+
+.createroutine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

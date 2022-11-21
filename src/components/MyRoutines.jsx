@@ -19,7 +19,6 @@ const MyRoutines = (props) => {
   const [goal, setGoal] = useState("");
   const [isPublic, setIsPublic] = useState(false); // will make changes later
 
-
   const createData = { name, goal, isPublic, token };
 
   async function handleSubmit(event) {
@@ -28,8 +27,8 @@ const MyRoutines = (props) => {
   }
 
   const handleOnChange = () => {
-    setIsPublic(!isPublic)
-  }
+    setIsPublic(!isPublic);
+  };
 
   // Setter function on ActivityId is not running correctly. Must fix to allow activityId to pass correctly when adding activity to routine.
 
@@ -49,75 +48,80 @@ const MyRoutines = (props) => {
 
   return token ? (
     <>
-      <div >
+      <div>
+          <div>
+            {localStorage.getItem("token") ? (
+              <div className="profilePage">
+                <Link to={"/"}>
+                  <button className="navbuttons" id="ProfileLogOut" onClick={logOut}>
+                    Log Out
+                  </button>
+                </Link>
+              </div>
+            ) : (
+              <div>Please log in!</div>
+            )}
+          </div>
         <h2 className="header">Create A Routine</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="name"
-              name="name"
-              value={name}
-              onChange={(event) => {
-                setName(event.target.value);
-              }}
-              required
-            />
-            <input
-              type="text"
-              placeholder="goal"
-              name="goal"
-              value={goal}
-              onChange={(event) => {
-                setGoal(event.target.value);
-              }}
-            />
+        <form className="createroutine" onSubmit={handleSubmit}>
+          <input
+            className="userpass"
+            type="text"
+            placeholder="name"
+            name="name"
+            value={name}
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+            required
+          />
+          <input
+            className="userpass"
+            type="text"
+            placeholder="goal"
+            name="goal"
+            value={goal}
+            onChange={(event) => {
+              setGoal(event.target.value);
+            }}
+          />
+          <div className="isPublicWhole">
             <div className="isPublicTitle">
               Would you like your routine public?
             </div>
             <input
               type="checkbox"
-              id="isPublic"
+              className="checkbox"
               name="isPublic"
               value="isPublic"
               public="false"
               onChange={handleOnChange}
             />
-            <button type="submit">Create Routine</button>
-          </form>
-          <div>
-            {routineState.map((routine, index) => {
-              return  (
-                <div className="MyRoutinesTitle">My Routines
+            <button className="loginbutton" type="submit">
+              Create Routine
+            </button>
+          </div>
+        </form>
+        <div>
+          <h2 className="MyRoutinesTitle">My Routines</h2>
+          {routineState.map((routine, index) => {
+            return (
+              <div>
                 <div key={index} className="tabs">
-                  <h3>{routine.name}</h3>
+                  <h3>{routine.name.toUpperCase()}</h3>
                   <h4>{routine.creatorName}</h4>
-                  <h4>{routine.goal}</h4>
+                  <h4>Goal: {routine.goal.toLowerCase()}</h4>
                   <DetailButton routineId={routine.id} />
-
                   <EditButton
                     routineId={routine.id}
                     routineName={routine.name}
                     routineGoal={routine.goal}
                   />
                 </div>
-                </div>
-              ) ;
-            })}
-          </div>
-        
-      </div>
-      <div>
-        {localStorage.getItem("token") ? (
-          <div className="profilePage">
-            <Link to={"/"}>
-              <button className="navButton" id="ProfileLogOut" onClick={logOut}>
-                Log Out
-              </button>
-            </Link>
-          </div>
-        ) : (
-          <div>Please log in!</div>
-        )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   ) : (

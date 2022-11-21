@@ -17,7 +17,7 @@ const DeleteActivityButton = (props) => {
     }
 
   return <Link to={`/myroutines`}>
-    <button className='deleteButton' onClick={nukeActivity}>Delete Activity</button>
+    <button className='loginbutton' onClick={nukeActivity}>Delete Activity</button>
   </Link>
 }
 

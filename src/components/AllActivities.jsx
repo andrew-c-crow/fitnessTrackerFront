@@ -29,9 +29,10 @@ const AllActivities = () => {
 
   return token ? ( 
     <div>
-      <h1 className="header">I am THE Activities</h1>
+      <h1 className="header">ALL PUBLIC ACTIVITIES</h1>
       <form onSubmit={handleSubmit}>
         <input
+          className="userpass"
           type="text"
           placeholder="Activity Name"
           value={name}
@@ -41,6 +42,7 @@ const AllActivities = () => {
           required
         ></input>
         <input
+          className="userpass"
           type="text"
           placeholder="Activity Description"
           value={description}
@@ -49,7 +51,7 @@ const AllActivities = () => {
           }}
           required
         ></input>
-        <button type="submit">Create Activity</button>
+        <button className="loginbutton" type="submit">Create Activity</button>
       </form> 
       <div>
       {activitiesData.length ? (
@@ -57,8 +59,8 @@ const AllActivities = () => {
             return (
               <div key={index} className="tabs">
                 <div>
-                  <h3>{activity.name}</h3>
-                  <h3>Description: {activity.description}</h3>
+                  <h3>{activity.name.toUpperCase()}</h3>
+                  <h3>Description: {activity.description.toLowerCase()}</h3>
                 </div>
               </div>
             );

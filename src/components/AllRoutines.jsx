@@ -17,20 +17,20 @@ const AllRoutines = () => {
 
   return (
     <div>
-      <h1 className="header">I am Working Still</h1>
+      <h1 className="header">ALL PUBLIC ROUTINES</h1>
       <div>
         {routineData.length ? (
           routineData.map((routine, index) => {
             return (
               <div key={index} className="tabs">
                 <div>
-                  <h3>{routine.name}</h3>
+                  <h3>{routine.name.toUpperCase()}</h3>
                 </div>
                 <div>
                   <h3>Creator: {routine.creatorName}</h3>
                 </div>
                 <div>
-                  <h3>Goal: {routine.goal}</h3>
+                  <h3>Goal: {routine.goal.toLowerCase()}</h3>
                 </div>
                 <div>
                   <DetailButton routineId={routine.id}/>

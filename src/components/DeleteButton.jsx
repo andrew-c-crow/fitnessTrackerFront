@@ -15,7 +15,7 @@ const DeleteButton = (props) => {
     }
 
   return <Link to={`/myroutines`}>
-    <button className='deleteButton' onClick={obliterateRoutine}>Delete Routine</button>
+    <button className='loginbutton' onClick={obliterateRoutine}>Delete Routine</button>
   </Link>
 }
 

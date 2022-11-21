@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 const DetailButton = (props) => {
 
   return <Link to={`/routines/seeactivities/${props.routineId}`}>
-    <button>See Activities</button>
+    <button className="loginbutton">See Activities</button>
   </Link>
 
 }

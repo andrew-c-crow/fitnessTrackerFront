@@ -15,7 +15,7 @@ const SeeActivities = (props) => {
   return filteredActivities ? (
     <div key={routineid}>
       <Link to="/routines">
-        <button>Back</button>
+        <button className="navbuttons">Back</button>
       </Link>
       <h3>Selected Routine:</h3>
       <h1>{filteredActivities[0].name}</h1>

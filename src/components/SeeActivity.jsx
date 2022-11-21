@@ -24,12 +24,12 @@ const SeeActivity = (props) => {
   // console.log(props.activitiesData[0])
   // console.log(activityArray)
   return singleActivity ? (
-    <div key={singleActivity.id} className="singleActivity">I am Working
-      <div className="activityName">
-        {singleActivity.name}
+    <div key={singleActivity.id} className="singleActivity">
+      <div className="activityName">Name:  
+        {singleActivity.name.toUpperCase()}
       </div>
-      <div className="activityDesc">
-        {singleActivity.description}
+      <div className="activityDesc">Description:  
+        {singleActivity.description.toLowerCase()}
       </div>
       <DeleteActivityButton activityid={activityid}/>
     </div>

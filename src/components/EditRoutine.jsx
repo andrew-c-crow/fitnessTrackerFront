@@ -71,7 +71,7 @@ const EditRoutine = (props) => {
   return (
     <div key={routineid}>
       <div>
-        <h1>Edit Routine</h1>
+        <h1 className="header">Edit Routine</h1>
         <div>
           <div>
             <span>Current Name: </span>
@@ -84,6 +84,7 @@ const EditRoutine = (props) => {
         <form onSubmit={handleSubmit}>
           <label>Name: </label>
           <input
+            className="userpass"
             type="text"
             placeholder="name"
             value={name}
@@ -94,6 +95,7 @@ const EditRoutine = (props) => {
           />
           <label>Goal: </label>
           <input
+            className="userpass"
             type="text"
             placeholder="goal"
             name="goal"
@@ -102,14 +104,14 @@ const EditRoutine = (props) => {
               setGoal(event.target.value);
             }}
           />
-          <button type="submit">Submit</button>
+          <button className="loginbutton" type="submit">Submit</button>
         </form>
       </div>
       <div>
         <DeleteButton routineid={routineid} />
       </div>
       <form onSubmit={handleSubmit2} id="addActivityForm">
-        <select
+        <select className="dropdown"
           onChange={(event) => {
             console.log(event.target.value);
             setActivityId(event.target.value);
@@ -119,12 +121,13 @@ const EditRoutine = (props) => {
             // console.log(activity.name, activity.id)
             return (
               <option key={index} value={activity.id} id={activity.id}>
-                {activity.name}
+                {activity.name.toUpperCase()}
               </option>
             );
           })}
         </select>
         <input
+          className="userpass"
           type="text"
           placeholder="count"
           name="count"
@@ -134,6 +137,7 @@ const EditRoutine = (props) => {
           }}
         ></input>
         <input
+          className="userpass"
           type="text"
           placeholder="duration"
           name="duration"
@@ -142,7 +146,7 @@ const EditRoutine = (props) => {
             setDuration(event.target.value);
           }}
         ></input>
-        <button type="submit">Add Activitiy to this Routine</button>
+        <button className="loginbutton" type="submit">Add Activitiy to this Routine</button>
       </form>
     </div>
   );
