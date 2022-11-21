@@ -26,10 +26,10 @@ const SeeActivity = (props) => {
   return singleActivity ? (
     <div key={singleActivity.id} className="singleActivity">
       <div className="activityName">Name:  
-        {singleActivity.name.toUpperCase()}
+        {singleActivity.name}
       </div>
       <div className="activityDesc">Description:  
-        {singleActivity.description.toLowerCase()}
+        {singleActivity.description}
       </div>
       <DeleteActivityButton activityid={activityid}/>
     </div>

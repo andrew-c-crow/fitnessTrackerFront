@@ -1,6 +1,6 @@
 body {
   font-family: 'Space Mono', monospace;
-  background-image: linear-gradient(to bottom right, rgb(244, 91, 91), rgb(248, 181, 56), rgb(249, 249, 80), rgb(84, 177, 84), rgb(103, 103, 234), rgb(234, 171, 234), rgb(169, 83, 169));
+  background-image: linear-gradient(to bottom right, brown, rgb(244, 91, 91), rgb(248, 181, 56), rgb(249, 249, 80) );
   height: 100vh;
   width: 100vw;
   margin: 0;
@@ -13,14 +13,14 @@ body {
   flex-grow: 1;
   max-height: 10%;
   min-height: 40px;
-  background-color: rgb(24, 19, 82);
+  background-color: rgb(123, 66, 26);
   color: white;
   display: flex;
   align-items: center;
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  border-bottom: 10px groove rgb(165, 146, 203);
+  border-bottom: 10px groove rgb(123, 66, 26);
   position: sticky;
   top: 0;
   width: 98%;
@@ -30,8 +30,8 @@ body {
   font-family: 'Space Mono', monospace;
   font-size: large;
   margin: 10px;
-  background-color: rgb(138, 103, 184);
-  border: 5px outset rgb(138, 103, 184);
+  background-color: rgb(154, 88, 41);
+  border: 5px outset rgb(123, 66, 26);
 }
 
 .navbuttons:hover {
@@ -85,9 +85,9 @@ position:absolute}
 }
 
 .userpass {
-  caret-color: rgb(138, 103, 184);
-  border: 5px inset rgb(177, 182, 229);
-  background-color: rgb(186, 191, 242);
+  caret-color: rgb(110, 79, 44);
+  border: 5px inset rgb(244, 244, 146);
+  background-color: rgb(244, 244, 146);
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -97,10 +97,10 @@ position:absolute}
 }
 
 .loginbutton {
-  border: 5px outset rgb(177, 182, 229);
-  background-color: rgb(168, 176, 241);
+  border: 5px outset rgb(244, 91, 91);
+  background-color: rgb(244, 91, 91);
   margin-left: 10px;
-  
+  color: rgb(241, 224, 224);
 }
 
 .loginbutton:hover {
@@ -122,7 +122,7 @@ position:absolute}
 
 .dropdown {
   margin: 10px;
-  background-color: rgb(196, 199, 231);
+  background-color: rgb(244, 244, 146);
 }
 
 .createroutine {
